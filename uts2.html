@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+
+
+  @media(max-width: 800px) {
+    .hideonMobile {
+      display: none;
+    }
+  }
+
+  @media(max-width: 400px) {
+    #sidebar {
+      width: 200px;
+    }
+  }
+</style>
+
+<body class="min-h-screen w-full">
+
+  <nav class="text-uppercase w-full">
+    <ul class="w-[100%] list-none flex items-center justify-end text-white bg-[#176B87]">
+      <li class="h-12  mr-auto"><a href="#" class="h-[100%] pt-0 pb-0 px-8 flex justify-end items-center">TEKNOLOGI
+          WEBSITE</a></li>
+      <li class="h-12 hideonMobile"><a href="#portofolio"
+          class="h-[100%] pt-0 pb-0 px-8 flex justify-end items-center">PORTOFOLIO</a></li>
+      <li class="h-12 hideonMobile"><a href="#about"
+          class="h-[100%] pt-0 pb-0 px-8 flex justify-end items-center">ABOUT</a>
+      </li>
+      <li class="h-12 hideonMobile"><a href="#contact"
+          class="h-[100%] pt-0 pb-0 px-8 flex justify-end items-center">CONTACT</a></li>
+      <li onClick=showSidebar() class="md:hidden h-12"><a href="#"
+          class="h-[100%] pt-0 pb-0 px-8 flex justify-end items-center"><svg xmlns="http://www.w3.org/2000/svg"
+            height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+          </svg></a></li>
+    </ul>
+    <!-- sidebar -->
+    <ul id="sidebar"
+      class="hidden pt-4 h-screen fixed top-0 right-0 w-64 z-50 text-white bg-dark-900 flex-col items-start justify-start bg-blue-900 backdrop-blur-lg bg-opacity-25">
+      <li onClick=hideSidebar() class="h-12 w-[100%]"><a href="#"
+          class="w-[100%] h-[100%] pt-0 pb-0 px-8 flex items-center"><svg xmlns="http://www.w3.org/2000/svg"
+            height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+          </svg></a></li>
+      <li class="h-12 w-[100%]"><a href="#" class="w-[100%] h-[100%] pt-0 pb-0 px-8 flex items-center">TEKNOLOGI
+          WEBSITE</a></li>
+      <li class="h-12 w-[100%]"><a href="#" class="hover:bg-green-400 w-[100%] h-[100%] pt-0 pb-0 px-8 flex items-center">PORTOFOLIO</a>
+      </li>
+      <li class="h-12 w-[100%]"><a href="#" class="w-[100%] h-[100%] pt-0 pb-0 px-8 flex items-center">ABOUT</a></li>
+      <li class="h-12 w-[100%]"><a href="#" class="w-[100%] h-[100%] pt-0 pb-0 px-8 flex items-center">CONTACT</a></li>
+    </ul>
+  </nav>
+  <div class="w-full bg-[#64CCC5] relative w-[100%] py-24 px-10 block items-center justify-items-center">
+    <img src="images/profile.png" class="w-40 mx-auto" alt="prof-img">
+    <h1 class="text-center text-4xl sm:text-lg md:text-2xl lg:text-4xl flex justify-center mt-6 text-white font-bold">
+      UTS TEKNOLOGI WEBSITE</h1>
+    <h4 class="text-center text-lg sm:text-sm md:text-md lg:text-lg flex justify-center mt-6 text-white">HTML -
+      BOOTSTRAP - JAVASCRIPT</h4>
+  </div>
+
+  <div id="portofolio" class="w-full bg-white relative w-[100%] block items-center justify-items-center">
+    <h1 class="mt-6 sm:text-lg md:text-2xl lg:text-4xl flex justify-center text-black font-bold">PORTOFOLIO</h1>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-12 mt-10">
+      <div>
+        <img src="images/cabin.png" alt="" class="w-[100%] h-[100%] rounded-2xl" data-title="Log Cabin"
+          data-image="images/cabin.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+
+      <div>
+        <img src="images/cake.png" alt="" class="w-[100%] h-[100%] rounded-2xl" data-title="Log Cake"
+          data-image="images/cake.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+      <div>
+        <img src="images/circus.png" alt="" class="w-[100%] h-[100%] rounded-2xl" data-title="Log Circus"
+          data-image="images/circus.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+      <div>
+        <img src="images/game.png" alt="" class="w-[100%] h-[100%] rounded-2xl" data-title="Log Game"
+          data-image="images/game.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+      <div>
+        <img src="images/safe.png" alt="" class="w-[100%] h-[100%] rounded-2xl" data-title="Log Safe"
+          data-image="images/safe.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+      <div>
+        <img src="images/submarine.png" alt="" class="w-[100%] h-[100%] rounded-2xl" data-title="Log Submarine"
+          data-image="images/submarine.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+    </div>
+  </div>
+  <div id="modal-porto"
+    class="fixed pointer-events-none opacity-0 flex items-center justify-center top-0 left-0 h-screen w-screen bg-black bg-opacity-40 backdrop-blur-sm z-50">
+    <div class="bg-white w-[70%] max-w-full rounded-[5px] shadow-lg">
+      <div class="flex items-center justify-between p-3 relative">
+        <h1 id="modal-title" class="font-bold text-2xl sm:text-lg md:text-xl lg:text-2xl text-center flex-1"></h1>
+        <button onclick="hideModal()" class="absolute top-0 right-0 p-3">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex items-center justify-center mt-4">
+        <img id="modal-image" src="" alt="" class="w-[50%] h-[50%] rounded-2xl">
+      </div>
+      <div class="flex justify-center items-center text-center p-8">
+        <p id="modal-description" class="text-wrap">
+
+        </p>
+      </div>
+      <div class="flex justify-center items-center">
+        <button onclick="hideModal()"
+          class="py-2 px-6 mb-16 bg-[#64CCC5] text-white rounded-[5px] hover:text-black hover:bg-[#64CCC5] transition ease-in-out duration-500 mr-4">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="w-full mt-20 bg-[#64CCC5] relative block p-20">
+    <h1 class="text-center text-4xl sm:text-lg md:text-2xl lg:text-4xl flex justify-center mt-6 text-white font-bold">
+      ABOUT
+    </h1>
+
+    <div class="flex flex-row justify-center mt-6 space-x-4">
+      <p class="w-full sm:w-full md:w-1/2 lg:w-1/3 text-wrap text-white">Web Technology refers to the various tools and
+        techniques that are utilized in the process of communication between different types of devices over the
+        Intenet. A web browser is used to access web pages</p>
+      <p class="w-full sm:w-full md:w-1/2 lg:w-1/3 text-wrap text-white">Web browser can be defines as programs that
+        display text, data, pictures, animation, and video on the Internet. Hyperlinked resources on the World Wide Web
+        can be accessed using software interfaces provides by Web browsers</p>
+    </div>
+  </div>
+  <div id="contact" class="w-full bg-white relative block items-center justify-items-center p-16">
+    <h1
+      class="text-center text-4xl sm:text-lg md:text-2xl lg:text-4xl flex justify-center mt-6 text-[#303d4e] font-bold">
+      CONTACT ME
+    </h1>
+  </div>
+  <div class="mt-2">
+    <div class="flex justify-center items-center">
+      <button id="open"
+        class="px-16 py-2 bg-[#303d4e] text-white rounded-[5px] hover:text-black hover:bg-[#64CCC5] transition ease-in-out duration-500">Contacts!</button>
+    </div>
+    <div id="contacts-input" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-6 p-5">
+
+    </div>
+    <!-- modal -->
+    <div id="modal-container"
+      class="fixed pointer-events-none opacity-0 flex items-center justify-center top-0 left-0 h-screen w-screen bg-black bg-opacity-40 backdrop-blur-sm z-50">
+      <div class="bg-white w-[600px] max-w-full rounded-[5px] shadow-lg">
+        <div class="absolute w-[600px] bg-[#64CCC5] p-2 rounded-t-[5px]">
+          <h1 id="modal-header" class="ml-6 font-semibold">Contact!</h1>
+        </div>
+
+        <div class="px-[30px] py-[50px]">
+          <div>
+            <label for="title" class="block mb-2">Title</label>
+            <input type="text" id="title" name="title"
+              class="w-full px-4 py-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Title">
+          </div>
+          <div>
+            <label for="message" class="block mb-2">Message</label>
+            <input type="text" id="message" name="message"
+              class="w-full px-4 py-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Message">
+          </div>
+          <div>
+            <label for="color" class="block mb-2">Color</label>
+            <select id="color" name="colorChoices"
+              class="w-full px-4 py-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="yellow">Yellow</option>
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="white">White</option>
+            </select>
+          </div>
+          <div class="flex justify-end items-center mt-6">
+            <button id="close"
+              class="px-8 py-2 bg-[#303d4e] text-white rounded-[5px] hover:text-black hover:bg-[#64CCC5] transition ease-in-out duration-500 mr-4">Close</button>
+            <button id="send"
+              class="px-8 py-2 bg-[#64CCC5] text-black rounded-[5px] hover:text-white hover:bg-[#303d4e] transition ease-in-out duration-500">Send
+              Messages</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="grid grid-cols-1 md:grid-cols-3 p-10 gap-5 bg-[#303d4e] mt-10 text-white">
+    <div class="p-5">
+      <h1 class="flex items-center justify-center font-bold text-lg sm:text-lg md:text-xl lg:text-2xl">LOCATION</h1>
+      <p class="flex items-center justify-center text-center mt-4 text-md sm:text-md md:text-lg lg:text-lg">Petra
+        Christian University<br>Jl.Siwalankerto No.121-131,
+        <br>Siwalankerto, Kec. Wonocolo, Surabaya, <br>Jawa Timur 60236
+      </p>
+    </div>
+
+    <div class="p-5">
+      <h1 class="flex items-center justify-center font-bold text-lg sm:text-lg md:text-xl lg:text-2xl">AROUND THE WEB
+      </h1>
+      <div class="flex items-center justify-center gap-3 mt-4">
+        <div class="rounded-[50%] border-2 border-white bg-transparent p-4 flex items-center justify-center relative">
+          <i class="fa-brands fa-facebook"></i>
+        </div>
+        <div class="rounded-[50%] border-2 border-white bg-transparent p-4 flex items-center justify-center relative">
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="rounded-[50%] border-2 border-white bg-transparent p-4 flex items-center justify-center relative">
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+        <div class="rounded-[50%] border-2 border-white bg-transparent p-4 flex items-center justify-center relative">
+          <i class="fa-brands fa-google"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-5">
+      <h1 class="flex items-center justify-center text-center font-bold text-lg sm:text-lg md:text-xl lg:text-2xl">ABOUT
+        WEB TECHNOLOGY</h1>
+      <p class="text-wrap text-center mt-4 text-md sm:text-md md:text-lg lg:text-lg">
+        The open Web presents incredible opportunities
+        for developers. To take full advantage of these technologies, you need to know how to use them. Here you'll find
+        links to our <a href="https://example.com/documentation" class="text-green-500 underline hover:text-green-400">Web technology </a>documentation</p>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    function showSidebar() {
+      const sidebar = document.getElementById('sidebar')
+      sidebar.style.display = 'flex'
+    }
+
+    function hideSidebar() {
+      const sidebar = document.getElementById('sidebar')
+      sidebar.style.display = 'none'
+    }
+  </script>
+  <script>
+    function showModal(element) {
+      const modal = document.getElementById('modal-porto');
+
+      const title = element.getAttribute('data-title');
+      const image = element.getAttribute('data-image');
+      const description = element.getAttribute('data-description');
+
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-image').src = image;
+      document.getElementById('modal-description').innerText = description;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function hideModal() {
+      const modal = document.getElementById('modal-porto');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+  </script>
+
+  <script>
+    const open = document.getElementById('open');
+    const modalCont = document.getElementById('modal-container');
+    const close = document.getElementById('close');
+    const send = document.getElementById('send');
+
+    const modalHeader = document.getElementById('modal-header');
+    const titleInput = document.getElementById('title');
+    const messageInput = document.getElementById('message');
+    const colorInput = document.getElementById('color');
+
+    const contactsDisplay = document.getElementById('contacts-input');
+
+    let editable = false;
+    let selectedCard = null;
+
+    // handling contact button 
+    open.addEventListener('click', () => {
+      editable = false;
+      titleInput.value = '';
+      messageInput.value = '';
+      colorInput.value = 'yellow';
+
+      modalHeader.textContent = 'Contact!';
+      send.textContent = 'Send Messages';
+
+      modalCont.classList.remove('opacity-0', 'pointer-events-none');
+      modalCont.classList.add('opacity-100');
+
+      close.addEventListener('click', () => {
+        modalCont.classList.add('opacity-0', 'pointer-events-none');
+        modalCont.classList.remove('opacity-100')
+      });
+    });
+
+
+    // editing created card
+    function openEditModal(card) {
+      editable = true;
+      selectedCard = card;
+
+      modalHeader.textContent = 'Edit Contact';
+      send.textContent = 'Edit';
+
+      titleInput.value = card.title;
+      messageInput.value = card.message;
+      colorInput.value = card.color;
+
+      modalCont.classList.remove('opacity-0', 'pointer-events-none');
+      modalCont.classList.add('opacity-100');
+
+    }
+
+    // creating new card
+    function createCard(title, message, color) {
+      const card = document.createElement('div');
+      card.classList.add(`bg-${color}-500`, 'rounded-2xl', 'text-white');
+
+      card.title = title;
+      card.message = message;
+      card.color = color;
+
+      card.innerHTML = `
+        <div class="border-${color}-600 border-b-2 w-full p-5">
+          <h1>${title}</h1>
+        </div>
+        <div class="p-5 w-full text-wrap overflow-auto">
+          <p>${message}</p>
+        </div>
+      `;
+
+      card.addEventListener('click', () => openEditModal(card));
+
+      contactsDisplay.appendChild(card);
+    }
+
+    // handling send or edit btn
+    send.addEventListener('click', () => {
+      const title = titleInput.value;
+      const message = messageInput.value;
+      const color = colorInput.value;
+
+      if (title === '' || message === '' || color === '') {
+        alert('Please fill all the blanks!');
+        return;
+      }
+
+      if (editable && selectedCard) {
+        selectedCard.title = title;
+        selectedCard.message = message;
+        selectedCard.color = color;
+
+        selectedCard.innerHTML = `
+          <div class="border-${color}-600 border-b-2 w-full p-5">
+            <h1>${title}</h1>
+          </div>
+          <div class="p-5 w-full text-wrap overflow-auto">
+            <p>${message}</p>
+          </div>
+        `;
+        modalCont.classList.add('opacity-0', 'pointer-events-none');
+        modalCont.classList.remove('opacity-100')
+      } else {
+        createCard(title, message, color);
+        modalCont.classList.add('opacity-0', 'pointer-events-none');
+        modalCont.classList.remove('opacity-100')
+      }
+
+      modalCont.classList.add('opacity-0', 'pointer-events-none');
+
+      // Reset form
+      titleInput.value = '';
+      messageInput.value = '';
+      colorInput.value = 'yellow';
+    });
+
+  </script>
+
+</body>
+
+</html>
