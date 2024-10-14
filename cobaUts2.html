@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<body class="min-h-screen w-screen">
+  <!-- topbar -->
+  <nav class="w-full bg-blue-400">
+    <ul class="uppercase h-12 text-white font-semibold flex items-center justify-end space-x-4 mr-4">
+      <li class="mr-auto ml-4">teknologi web</li>
+      <li><a href="#portofolio">portofolio</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+  <div class="relative block bg-green-400">
+    <div class="p-20">
+      <div class="flex items-center justify-center p-10">
+        <img class="w-40" src="images/profile.png" alt="">
+      </div>
+      <div class="mt-0 text-white">
+        <h1 class="flex items-center justify-center text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold">UTS
+          TEKNOLOGI WEB</h1>
+        <p class="flex items-center justify-center mt-4"> HTML - Bootstraps - Javascript</p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 relative block">
+    <h1 class="uppercase flex items-center justify-center text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold">
+      portofolio</h1>
+    <div class="mx-10 mt-10 grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+      <div>
+        <img src="images/cabin.png" class="rounded-[5px]" alt="" data-title="Log Cabin" data-image="images/cabin.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+
+      <div>
+        <img src="images/cake.png" class="rounded-[5px]" alt="" data-title="Log cake" data-image="images/cake.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+
+      <div>
+        <img src="images/circus.png" class="rounded-[5px]" alt="" data-title="Log circus" data-image="images/circus.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+
+      <div>
+        <img src="images/game.png" class="rounded-[5px]" alt="" data-title="Log game" data-image="images/game.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+
+      <div>
+        <img src="images/safe.png" class="rounded-[5px]" alt="" data-title="Log safe" data-image="images/safe.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+
+      <div>
+        <img src="images/submarine.png" class="rounded-[5px]" alt="" data-title="Log submarine.png"
+          data-image="images/submarine.png"
+          data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          onclick="showModal(this)">
+      </div>
+
+
+    </div>
+    <div id="modal-porto"
+      class="opacity-0 pointer-events-none fixed bg-black flex items-center justify-center top-0 left-0 bg-opacity-25 backdrop-blur-sm h-screen w-screen">
+      <div class="w-[70%] bg-white shadow-lg rounded-[5px]">
+        <div class="flex items-center justify-center mt-4">
+          <h1 id="modal-title" class="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold">ohohohohohohohh</h1>
+        </div>
+        <div class="flex items-center justify-center mt-6 ">
+          <img id="modal-image" class="w-[50%] rounded-[5px]" src="images/cabin.png" alt="">
+        </div>
+        <div class="flex items-center justify-center text-center mx-10">
+          <p id="modal-description" class="text-wrap" id="modal-description">aaaaaaaaaaaaaaaaaaaaaaaaaaa
+            ssssssssssssssssssssssss sssssssssssss eeeeee hellowww u out there peple whhwhwh idont know ehuwy aoin
+            pjeoaj hehiehie</p>
+        </div>
+        <div class="flex items-center justify-center my-6">
+          <button class="px-16 py-2 bg-black text-white rounded-2xl" onclick="hideModal()">Close Window</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="relative bg-green-400 mt-10 text-white">
+    <h1 class="pt-20 pb-10 flex items-center justify-center text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold">
+      ABOUT</h1>
+    <div class="flex flex-row justify-center p-10 space-x-4">
+      <p class="w-[60%] text-wrap lg:w-1/3">Web Technology refers to the various tools and
+        techniques that are utilized in the process of communication between different types of devices over the
+        Intenet. A web browser is used to access web pages</p>
+      <p class="w-[60%] text-wrap lg:w-1/3">Web browser can be defines as programs that
+        display text, data, pictures, animation, and video on the Internet. Hyperlinked resources on the World Wide Web
+        can be accessed using software interfaces provides by Web browsers</p>
+    </div>
+
+  </div>
+  <div class="relative mt-10">
+    <h1 id="modal-header" class="flex items-center justify-center text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold">CONTACT ME</h1>
+    <div class="flex justify-center items-center mt-8">
+      <button id="open" class="bg-black px-16 py-2 rounded-[5px] text-white">Contacts!</button>
+    </div>
+    <div id="contacts-input" class="mx-10 mt-10 gap-6 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6"></div>
+    <div id="modal-container"
+      class="fixed opacity-0 pointer-events-none top-0 left-0 bg-black bg-opacity-25 w-screen h-screen flex justify-center items-center">
+      <div class="bg-white shadow-md w-[70%] rounded-[5px]">
+        <div class="absolute rounded-t-[5px] bg-green-400 w-[70%] py-2">
+          <h1 class="ml-4 font-semibold" id="modal-title">Contacts!</h1>
+        </div>
+        <div class="px-4 py-10 mt-2">
+          <div>
+            <label class="block mb-2" for="title">Title</label>
+            <input class="bg-grey-400 w-full border p-2 rounded-[3px]" type="text" id="title" placeholder="title">
+          </div>
+          <div class="mt-4">
+            <label class="block mb-2" for="title">message</label>
+            <input class="bg-grey-400 w-full border p-2 rounded-[3px]" type="text" id="message" placeholder="message">
+          </div>
+          <div class="mt-4">
+            <label class="block mb-2" for="title">message</label>
+            <select class="bg-grey-400 w-full border p-2 rounded-[3px]" name="colorChoices" id="color">
+              <option value="red">Red</option>
+              <option value="blue">blue</option>
+              <option value="yellow">yellow</option>
+              <option value="green">green</option>
+              <option value="black">black</option>
+            </select>
+          </div>
+          <div class="flex justify-end items-center space-x-4 mt-5">
+            <button id="close" class="bg-green-600 text-white px-6 py-2 rounded-[5px]">Close</button>
+            <button id="send" class="bg-green-600 text-white px-6 py-2 rounded-[5px]">Send Messages</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="relative mt-10 bg-black text-white grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
+    <div class="p-10 flex-col justify-center text-center items-center">
+      <h1>LOCATION</h1>
+      <p>Petra
+        Christian University<br>Jl.Siwalankerto No.121-131,
+        <br>Siwalankerto, Kec. Wonocolo, Surabaya, <br>Jawa Timur 60236
+      </p>
+    </div>
+    <div class="p-10 flex-col justify-center text-center items-center">
+      <h1>AROUND THE WEB</h1>
+      <div class="flex justify-center space-x-4 items-center">
+        <div class="rounded-[50%] border-2 border-white bg-transparent p-4 flex items-center justify-center relative">
+          <i class="fa-brands fa-facebook"><a href="facebook.com"></a></i>
+        </div>
+        <div class="rounded-[50%] border-2 border-white bg-transparent p-4 flex items-center justify-center relative">
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="rounded-[50%] border-2 border-white bg-transparent p-4 flex items-center justify-center relative">
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+        <div class="rounded-[50%] border-2 border-white bg-transparent p-4 flex items-center justify-center relative">
+          <i class="fa-brands fa-google"></i>
+        </div>
+      </div>
+    </div>
+    <div class="p-10 flex-col justify-center text-center items-center">
+      <h1 class="font-bold">WEB TECHNOLOGY</h1>
+      <p>The open Web presents incredible opportunities
+        for developers. To take full advantage of these technologies, you need to know how to use them. Here you'll find
+        links to our <a class="underline text-green-500 hover:text-green-400" href="#">Web technology</a> documentation
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    function showModal(element) {
+      const modal = document.getElementById('modal-porto');
+
+      const title = element.getAttribute('data-title');
+      const image = element.getAttribute('data-image');
+      const description = element.getAttribute('data-description');
+
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-image').src = image;
+      document.getElementById('modal-description').textContent = description;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function hideModal() {
+      const modal = document.getElementById('modal-porto');
+      modal.classList.remove('opacity-100', 'pointer-events-auto');
+      modal.classList.add('opacity-0', 'pointer-events-none')
+    }
+  </script>
+  <script>
+    const modal = document.getElementById('modal-container');
+    const open = document.getElementById('open');
+    const close = document.getElementById('close');
+    const send = document.getElementById('send');
+    
+    const header = document.getElementById('modal-header');
+
+    const titleInput = document.getElementById('title');
+    const messageInput = document.getElementById('message');
+    const colorInput = document.getElementById('color');
+
+    const contactDisplay = document.getElementById('contacts-input')
+    let editable = false;
+    let selectedCard = null;
+    open.addEventListener('click', () => {
+      editable = false;
+      titleInput.value = '';
+      messageInput.value = '';
+      colorInput.value = 'yellow';
+
+      header.textContent = 'Contacts!';
+      send.textContent = 'send';
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+      
+      close.addEventListener('click', () => {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100', 'pointer-events-auto');
+      })
+    });
+
+    function openCreatedModal(card){
+      editable = true;
+      selectedCard = card;
+
+      header.textContent = 'Edit Message!';
+      send.textContent = 'edit';
+
+      titleInput.value = card.title;
+      messageInput.value = card.message;
+      colorInput.value = card.title;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function createCard(title, message, color){
+      const card = document.createElement('div');
+      card.classList.add(`bg-${color}-500`, 'rounded-2xl', 'text-white');
+      card.innerHTML = `
+      <div class="border-${color}-600 border-b-2 w-full p-5">
+        <h1>${title}</h1>
+      </div>
+      <div>
+        <p class="text-wrap p-5 w-full break-words">${message}</p>
+      </div>`
+      card.addEventListener('click', () => openCreatedModal(card));
+      contactDisplay.appendChild(card);
+
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+
+    send.addEventListener('click', () => {
+      const title = titleInput.value;
+      const message = messageInput.value;
+      const color = colorInput.value;
+
+      if(title === '' || message === '' || color === ''){
+        alert('Fill all the blanks!');
+        return;
+      }
+
+      if(selectedCard && editable){
+        selectedCard.title = title;
+        selectedCard.message = message;
+        selectedCard.color = color;
+        
+        selectedCard.innerHTML = 
+        `<div class="border-${color}-600 border-b2 w-full p-5">
+          <h1>${title}</h1>
+        </div>
+        <div>
+          <p class="text-wrap p-5 w-full">${description}</p>
+        </div>`
+      } else {
+        createCard(title, message, color);
+      }
+      modalCont.classList.add('opacity-0', 'pointer-events-none');
+      modalCont.classList.remove('opacity-100')
+    }
+    )
+  </script>
+</body>
+
+</html>

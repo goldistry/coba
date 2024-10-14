@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pattern</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    .label {
+      font-size: 18px;
+      color: green;
+    }
+
+    .input {
+      font-size: 20px;
+    }
+
+    .container-fluid {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    .footer {
+      margin-top: auto;
+    }
+
+    #display {
+      white-space: pre;
+      max-height: 550px;
+    }
+  </style>
+  <div class="container-fluid">
+    <div class="row bg-primary">
+      <nav class="navbar navbar-primary">
+        <h2 class="text-light m-4">Bootstrap x jQuery</h2>
+      </nav>
+    </div>
+    <div class="row main-content">
+      <div class="col-md-4">
+        <div>
+          <h5 class="m-3">Form Control</h5>
+          <div class="m-3">
+            <label>Width</label>
+            <div class="input-group mt-1 mb-2">
+              <button class="btn btn-primary fw-bolder button-control" type="button"
+                onclick="change('-', 'width')">-</button>
+              <input type="number" class="form-control text-end" id="width" min="0" value="0" readonly placeholder="">
+              <button class="btn btn-primary fw-bolder button-control" type="button"
+                onclick="change('+', 'width')">+</button>
+            </div>
+          </div>
+          <div class="m-3">
+            <label>Height</label>
+            <div class="input-group mt-1 mb-2">
+              <button class="btn btn-primary fw-bolder button-control" type="button"
+                onclick="change('-', 'height')">-</button>
+              <input type="number" class="form-control text-end" id="height" min="0" value="0" readonly placeholder="">
+              <button class="btn btn-primary fw-bolder button-control" type="button"
+                onclick="change('+', 'height')">+</button>
+            </div>
+          </div>
+          <div class="m-3">
+            <label>Size (px)</label>
+            <div class="input-group mt-1 mb-2">
+              <button class="btn btn-primary fw-bolder button-control" type="button"
+                onclick="change('-', 'size')">-</button>
+              <input type="number" class="form-control text-end" id="size" min="0" value="0" readonly placeholder="">
+              <button class="btn btn-primary fw-bolder button-control" type="button"
+                onclick="change('+', 'size')">+</button>
+            </div>
+          </div>
+          <div class="m-3">
+            <label>Pattern <i style="font-size: 15px;" class="text-secondary">*max-length: 1 letter</i></label>
+            <div class="input-group mt-1 mb-2">
+              <input type="text" class="form-control text-control" id="pattern" placeholder="Example :  *, #, x"
+                maxlength="1">
+            </div>
+          </div>
+          <div class="m-3">
+            <label>Type</label>
+            <div class="input-group mt-1 mb-2">
+              <select class="form-control select-control" id="type">
+                <option value="square">Square</option>
+                <option value="square-border">Square Border</option>
+                <option value="triangle">Triangle</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-8 p-3 text-center">
+        <h4 class="fw-bolder mt-1 mb-3 text-center"> <u>Display</u></h4>
+        <!-- overflow-auto: kalau melebihi screen atau melebih batasan, muncul scroll -->
+        <div id="display" class="fw-bolder mb-5 overflow-auto text-primary text-center justify-content-center">
+        </div>
+      </div>
+    </div>
+    <div class="row bg-secondary mb-0 footer">
+      <div class="col-12 text-light text-center p-3">
+        <b style="font-size: 18px;">C14230250 - Jessica Chandra </b><br> Teknologi Web - Gasal 2024/2025
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  $(function () {
+    $(".button-control").click(function () {
+      display();
+    })
+    $(".text-control").keyup(function () {
+      display();
+    })
+    $(".select-control").change(function () {
+      display();
+    })
+  });
+
+  function display() {
+    var result = "";
+
+    var width = $("#width").val();
+    var height = $("#height").val();
+    var size = $("#size").val();
+    var pattern = $("#pattern").val();
+    var type = $("#type").val();
+
+    if (pattern == "") {
+      result = "Pattern is empty. Please fill it first"
+      $("#pattern").addClass("border-3 border-danger");
+      // supaya cursor ke pattern input
+      $("#pattern").focus(); 
+      $("#display").addClass("text-danger");
+    } else {
+      $("#pattern").removeClass("border-3 border-danger");
+      $("#display").removeClass("text-danger");
+    }
+    switch (type) {
+      case "square":
+        result = square(height, width, pattern);
+        break;
+      case "square-border":
+        result = square_border(height, width, pattern);
+        break;
+      case "triangle":
+        result = triangle(height, width, pattern);
+        break;
+    }
+
+    $("#display").html(result);
+    $("#display").css('font-size', size + "px")
+  }
+
+  function square(height, width, pattern) {
+    var result = "";
+    for (i = 0; i < height; i++) {
+      for (j = 0; j < width; j++) {
+        result += pattern + ' ';
+      }
+      result += "<br>";
+      // br buat ganti baris
+    }
+    return result;
+  }
+  // cara supaya seperti square border normal
+  function square_border(height, width, pattern) {
+    var result = "";
+    for (i = 0; i < height; i++) {
+      for (j = 0; j < width; j++) {
+        if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+          result += pattern;
+        } else {
+          result += " ";
+        }
+        result += "\t";
+      }
+      result += "<br>";
+    }
+    return result;
+  }
+  // cara square border seperti contoh
+  // function square_border(height, width, pattern) {
+  //   var result = "";
+  //   for (i = 0; i < height; i++) {
+  //     for (j = 0; j < width; j++) {
+  //       if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+  //         result += pattern + " ";
+  //       } else {
+  //         result += "&nbsp;&nbsp;&nbsp;&nbsp";
+  //       }
+  //     }
+  //     result += "<br>";
+  //   }
+  //   return result;
+  // }
+
+  function triangle(height, width, pattern) {
+    var result = "";
+    for (i = 0; i < height; i++) {
+      for (j = 0; j <= i && j < width; j++) {
+        result += pattern + ' ';
+      }
+      result += "<br>";
+    }
+    return result;
+  }
+
+  function change(operator, text_id) {
+    if (operator == "+") {
+      $("#" + text_id).val(parseInt($("#" + text_id).val()) + 1);
+    }
+
+    if (operator == "-") {
+      let val = parseInt($("#" + text_id).val()) - 1;
+      if (val >= 0) {
+        $("#" + text_id).val(val);
+      }
+    }
+  }
+</script>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <nav class="bg-blue-400 w-full">
+    <div class="ml-5 py-4">
+      <h1 class="font-bold text-white text-lg sm:text-xl md:text-xl lg:text-2xl">Kanban View</h1>
+    </div>
+  </nav>
+  <div class="relative m-5">
+    <div>
+      <label class="block mb-2 font-semibold" for="tugas">Tugas</label>
+      <input class="rounded-[5px] w-full border-2 border-grey-400 px-2 py-1" type="tugas" id="tugas"
+        placeholder="tugas">
+    </div>
+    <div class="mt-2">
+      <label class="block mb-2 font-semibold" for="status">Status</label>
+      <select class="rounded-[5px] w-full border-2 border-grey-400 px-2 py-1" name="statusChoices" id="status">
+        <option value="pending">Pending</option>
+        <option value="planning">Planning</option>
+        <option value="design">Design</option>
+        <option value="development">Development</option>
+        <option value="testing">Testing</option>
+        <option value="resolved">Resolved</option>
+      </select>
+    </div>
+    <div class="mt-4">
+      <button id="submit" class="bg-blue-600 px-4 py-1 text-white rounded-[5px]">Submit</button>
+    </div>
+  </div>
+  <div class="grid grid-cols-6 m-5">
+    <div id="pending" class="min-h-screen w-full border-[1px] border-grey-400 rounded-[3px]">
+      <div class="mx-auto border-2 bg-grey-300 border-grey-300 w-[70%] h-8">
+        <h1 class="font-bold">Pending</h1>
+      </div>
+      <!-- <div class="mx-2 mt-4 p-5 h-[100px] border-2 border-grey-400">
+        <p class="flex justify-center items-center text-center break-words">hahahahhahahha</p>
+      </div> -->
+    </div>
+    <div id="planning" class="min-h-screen w-full border-[1px] border-grey-400 rounded-[3px]">
+      <div class="mx-auto border-2 bg-grey-300 border-grey-300 w-[70%] h-8">
+        <h1 class="font-bold">Planning</h1>
+      </div>
+    </div>
+    <div id="design" class="min-h-screen w-full border-[1px] border-grey-400 rounded-[3px]">
+      <div class="mx-auto border-2 bg-grey-300 border-grey-300 w-[70%] h-8">
+        <h1 class="flex font-bold">design</h1>
+      </div>
+    </div>
+    <div id="development" class="min-h-screen w-full border-[1px] border-grey-400 rounded-[3px]">
+      <div class="mx-auto border-2 bg-grey-300 border-grey-300 w-[70%] h-8">
+        <h1 class="flex font-bold">development</h1>
+      </div>
+    </div>
+    <div id="testing" class="min-h-screen w-full border-[1px] border-grey-400 rounded-[3px]">
+      <div class="mx-auto border-2 bg-grey-300 border-grey-300 w-[70%] h-8">
+        <h1 class="flex font-bold">testing</h1>
+      </div>
+    </div>
+    <div id="resolved" class="min-h-screen w-full border-[1px] border-grey-400 rounded-[3px]">
+      <div class="mx-auto border-2 bg-grey-300 border-grey-300 w-[70%] h-8">
+        <h1 class="flex font-bold">resolved</h1>
+      </div>
+    </div>
+  </div>
+  <script>
+    // function deleteCard(card) {
+    //   card.addEventListener('dblclick', function () {
+    //     card.remove();
+    //   })
+    // }
+    submit.addEventListener('click', () => {
+      const submit = document.getElementById('submit');
+      const tugas = document.getElementById('tugas').value;
+      const status = document.getElementById('status').value;
+      const card = document.createElement('div');
+      card.classList.add('mx-auto', 'mt-6', 'p-5', 'border-2', 'border-grey-400', 'w-[70%]', 'overflow-auto');
+
+      card.innerHTML = `
+        <div class="w-full text-center">
+          <p class="break-words">${tugas}</p>
+        </div>
+      `;
+      card.addEventListener('dblclick', function () {
+        card.remove();
+      });
+      document.getElementById(status).appendChild(card);
+
+    })
+  </script>
+</body>
+
+</html>
